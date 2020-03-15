@@ -1,0 +1,1 @@
+This is a test Visual Studio 2019 project for testing nnlib2 (windows console test apps)

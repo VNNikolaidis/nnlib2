@@ -1,0 +1,36 @@
+Contact vnnikolaidis@gmail.com or vnikolaidis@us.uop.gr for updated information on citing this library,
+or use the following article:
+
+Nikolaidis, Vasiliοs N., Ilias A. Makris, and Stavros Stavroyiannis. "ANS-based preprocessing of company performance indicators." Global Business and Economics Review 15.1 (2013): 49-58.
+
+BibTex:
+
+@article{nikolaidis2013ans,
+  title={ANS-based Preprocessing of Company Performance Indicators},
+  author={Nikolaidis, Vasilios N and Makris, Ilias A and Stavroyiannis, Stavros},
+  journal={Global Business and Economics Review},
+  volume={15},
+  number={1},
+  pages={49--58},
+  year={2013},
+  publisher={Inderscience Publishers Ltd}
+}
+
+R-CITATION Format:
+
+bibentry(
+	bibtype = "Article",
+	title= "ANS-based preprocessing of company performance indicators",
+	author = as.person("Vasilios N. Nikolaidis [aut], Ilias A. Makris [aut], Stavros Stavroyiannis [aut]"),
+	journal = "Global Business and Economics Review",
+	volume= "15",
+	number= "1",
+	pages= "49--58",
+	year=  2013 ,
+	publisher= "Inderscience Publishers Ltd",
+	doi = "10.1504/GBER.2013.050667"
+)
+
+textVersion = "Nikolaidis, V.N., Makris, I.A. and Stavroyiannis, S., 2013. ANS-based preprocessing of company performance indicators. Global Business and Economics Review, 15(1), pp.49-58."
+
+Contact vnnikolaidis@gmail.com or vnikolaidis@us.uop.gr for updated information about citing this library.

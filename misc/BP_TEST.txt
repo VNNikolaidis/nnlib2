@@ -1,0 +1,83 @@
+Component: Back_Propagation
+Origin.ID: 17
+Comp.Type: Artificial_Neural_System
+Aux.Param: 0
+Input_Dim: 4
+OutputDim: 3
+NumCompon: 5
+Component: Input
+Origin.ID: 18
+Comp.Type: Layer
+Aux.Param: 0
+VectSize(elements): 4
+0: PE B: 0 M: 0
+1: PE B: 0 M: 0
+2: PE B: 0 M: 0
+3: PE B: 0 M: 0
+Component: Connections_(Fully_Connected)_
+Origin.ID: 19
+Comp.Type: Connection_Set
+Aux.Param: 0
+SourceCom: 18
+DestinCom: 20
+ListSize(elements): 20
+0: CON FR: 0 TO: 0 WGT: -1.37246
+1: CON FR: 1 TO: 0 WGT: -1.72936
+2: CON FR: 2 TO: 0 WGT: 12.9937
+3: CON FR: 3 TO: 0 WGT: 4.33888
+4: CON FR: 0 TO: 1 WGT: 13.4938
+5: CON FR: 1 TO: 1 WGT: 10.2784
+6: CON FR: 2 TO: 1 WGT: 0.294602
+7: CON FR: 3 TO: 1 WGT: 5.31085
+8: CON FR: 0 TO: 2 WGT: 5.65316
+9: CON FR: 1 TO: 2 WGT: 5.8152
+10: CON FR: 2 TO: 2 WGT: -11.3834
+11: CON FR: 3 TO: 2 WGT: -4.99767
+12: CON FR: 0 TO: 3 WGT: 1.75321
+13: CON FR: 1 TO: 3 WGT: -1.9819
+14: CON FR: 2 TO: 3 WGT: 2.74841
+15: CON FR: 3 TO: 3 WGT: 2.36933
+16: CON FR: 0 TO: 4 WGT: -1.39079
+17: CON FR: 1 TO: 4 WGT: 1.55074
+18: CON FR: 2 TO: 4 WGT: -2.64937
+19: CON FR: 3 TO: 4 WGT: -3.116
+Component: Hidden_Layer_1_(Comp.)
+Origin.ID: 20
+Comp.Type: Layer
+Aux.Param: 0
+VectSize(elements): 5
+0: PE B: -10.1963 M: 1.13242e-006
+1: PE B: -0.456277 M: 4.8967e-015
+2: PE B: 16.5773 M: -7.58501e-008
+3: PE B: 2.63003 M: -3.64779e-009
+4: PE B: -2.83635 M: 2.94728e-009
+Component: Connections_(Fully_Connected)_
+Origin.ID: 21
+Comp.Type: Connection_Set
+Aux.Param: 0
+SourceCom: 20
+DestinCom: 22
+ListSize(elements): 15
+0: CON FR: 0 TO: 0 WGT: -1.46401
+1: CON FR: 1 TO: 0 WGT: 0.0161641
+2: CON FR: 2 TO: 0 WGT: 2.04299
+3: CON FR: 3 TO: 0 WGT: -7.07302
+4: CON FR: 4 TO: 0 WGT: 5.33934
+5: CON FR: 0 TO: 1 WGT: -11.5324
+6: CON FR: 1 TO: 1 WGT: -10.8795
+7: CON FR: 2 TO: 1 WGT: 11.9249
+8: CON FR: 3 TO: 1 WGT: 8.44621
+9: CON FR: 4 TO: 1 WGT: -13.6275
+10: CON FR: 0 TO: 2 WGT: 11.9177
+11: CON FR: 1 TO: 2 WGT: 11.5381
+12: CON FR: 2 TO: 2 WGT: -12.9827
+13: CON FR: 3 TO: 2 WGT: -0.607491
+14: CON FR: 4 TO: 2 WGT: -1.46347
+Component: Output_(Comp.)
+Origin.ID: 22
+Comp.Type: Layer
+Aux.Param: 0
+VectSize(elements): 3
+0: PE B: -1.2095 M: -2.13633e-007
+1: PE B: -3.80106 M: -9.50888e-006
+2: PE B: -3.82906 M: 6.48702e-006
