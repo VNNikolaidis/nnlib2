@@ -43,6 +43,7 @@ The library was meant to be a tool for creating “any” (at least traditional)
 
 ⦁	A simple Matrix-Associative-Memory (MAM) (<-- Note: this is the code to check first. Simplest and most recently written) 
 
+---
 Advantages:
 
 ⦁	Framework produces compiled code, which is fast (however, see disadvantages below).
