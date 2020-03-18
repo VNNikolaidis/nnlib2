@@ -25,7 +25,7 @@ nnlib2 C++ Neural Network library goals:
 
 ⦁	To be written in C++ code in a manner that is: (a) Compatible with various C++ compilers (including older compilers for legacy systems, compilers with partial or no STL support, compilers targeting systems of limited processing power, etc.), (b) Compatible with various C++ project types (console, GUI-based, etc), (c) Compatible and usable in R via Rcpp. (d) Compatible with Microsoft Foundation Classes (MFC, by inheriting nn_with_ui instead of nn class for NNs that provides a NN GUI in MS-Windows applications - not included in this repo).
 
-Real reason for this repo is to allow further development, improvement and refinement of the library by making it public to programmers and data scientists. The library was meant to be a tool for creating “any” (at least traditional) NN model in C++; it currently includes the following Artificial Neural System (ANS) implementations:
+The library was meant to be a tool for creating “any” (at least traditional) NN model in C++; it currently includes the following Artificial Neural System (ANS) implementations:
 
 ⦁	Learning Vector Quantization (LVQ) (supervised) in class lvq_nn (parent class nn).
 
@@ -35,7 +35,7 @@ Real reason for this repo is to allow further development, improvement and refin
 
 ⦁	Autoencoder (parent class bp_nn).
 
-⦁	Several Back-Propagation custom variations (of my own ) in class bpXX_nn.
+⦁	Several Back-Propagation custom variations (of my own) in class bpXX_nn.
 
 ⦁	A simple Matrix-Associative-Memory (MAM).
 
