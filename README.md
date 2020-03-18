@@ -27,7 +27,7 @@ Real reason for this repo is to allow further development, improvement and refin
 
 ⦁	Learning Vector Quantization (LVQ) (supervised) in class lvq_nn (parent class nn).
 
-⦁	Self-Organizing Map (SOM) (unsupervised) A simpllified 1-D variation of Kohonen’s famous NN family) in class som_nn (parent class lvq_nn).
+⦁	Self-Organizing Map (SOM) (unsupervised) (A simpllified 1-D variation of Kohonen’s famous NN family) in class som_nn (parent class lvq_nn).
 
 ⦁	Plain Back-Propagation (BP) multilayer perceptron (supervised) ) in class bp_nn.
 
