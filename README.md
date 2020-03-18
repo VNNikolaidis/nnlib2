@@ -1,15 +1,15 @@
 # nnlib2
-C++ Library for creating Artificial Neural Networks (ANNs) and related R package containing some ANNs implemented in this library.
+A C++ Library for creating Artificial Neural Networks.
 
 To compile for a particular target the following are available in header nnlib2.h:
 NNLIB2_FOR_GCC for gcc (minor mods)
 NNLIB2_FOR_RCPP for R (Rcpp) package of nnlib2 NNs
-NNLIB2_FOR_MFC_UI for MS-Windows (MFC and VS6) support and GUI to nnlib2
+NNLIB2_FOR_MFC_UI for MS-Windows (MFC support and GUI to nnlib2 (optional-not in this repo))
 or define none of these for unspecified targer.
 
 nnlib2 C++ Neural Network library goals:
 
-⦁	To help creating Neural Network (NNs) in C++, allowing a uniform code-writing style for different NN implementations.
+⦁	To help creating Artificial Neural Network Systems (ANNs/ANS/NNs) in C++, allowing a uniform code-writing style for different NN implementations.
 
 ⦁	To be versatile and sufficient for prototyping and experimentation with new NN models, including complex multi-layer ones.
 
