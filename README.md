@@ -29,11 +29,11 @@ The library was meant to be a tool for creating “any” (at least traditional)
 
 ⦁	Learning Vector Quantization (LVQ) (supervised) in class lvq_nn (parent class nn).
 
-⦁	Self-Organizing Map (SOM) (unsupervised) (A simpllified 1-D variation of Kohonen’s famous NN family) in class som_nn (parent class lvq_nn).
+⦁	Self-Organizing Map (SOM) (unsupervised) (A simplified 1-D variation of Kohonen’s famous NN family) in class som_nn (parent class lvq_nn).
 
-⦁	Plain Back-Propagation (BP) multilayer perceptron (supervised) ) in class bp_nn.
+⦁	Back-Propagation (BP) multilayer perceptron (supervised) ("Vanilla" version) in class bp_nn.
 
-⦁	Autoencoder (parent class bp_nn), for dimensionality reduction (a bit like PCA) or PCA-like.
+⦁	Autoencoder (parent class bp_nn), for dimensionality reduction (a bit like PCA) or expansion.
 
 ⦁	Several Back-Propagation custom variations (of my own) in class bpXX_nn.
 
