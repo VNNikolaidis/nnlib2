@@ -9,9 +9,9 @@ or define none of these for unspecified targer.
 
 nnlib2 C++ Neural Network library goals:
 
-⦁	To help creating Neural Network (NNs) in C++, allowing a uniform code-writing style for NN implementations.
+⦁	To help creating Neural Network (NNs) in C++, allowing a uniform code-writing style for different NN implementations.
 
-⦁	To be versatile and sufficient for prototyping and experimentation with new NN models.
+⦁	To be versatile and sufficient for prototyping and experimentation with new NN models, including complex multi-layer ones.
 
 ⦁ To simplify NN implementation, with classes that follow classic NN concepts.
 
