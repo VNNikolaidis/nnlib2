@@ -33,7 +33,7 @@ The library was meant to be a tool for creating “any” (at least traditional)
 
 ⦁	Plain Back-Propagation (BP) multilayer perceptron (supervised) ) in class bp_nn.
 
-⦁	Autoencoder (parent class bp_nn).
+⦁	Autoencoder (parent class bp_nn), for dimensionality reduction (a bit like PCA) or PCA-like.
 
 ⦁	Several Back-Propagation custom variations (of my own) in class bpXX_nn.
 
