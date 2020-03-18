@@ -7,6 +7,8 @@ NNLIB2_FOR_RCPP for R (Rcpp) package of nnlib2 NNs
 NNLIB2_FOR_MFC_UI for MS-Windows (MFC support and GUI to nnlib2 (optional-not in this repo))
 or define none of these for unspecified targer.
 
+---
+
 nnlib2 C++ Neural Network library goals:
 
 ⦁	To help creating Artificial Neural Network Systems (ANNs/ANS/NNs) in C++, allowing a uniform code-writing style for different NN implementations.
