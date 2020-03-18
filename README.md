@@ -19,7 +19,7 @@ nnlib2 C++ Neural Network library goals:
 
 ⦁	To contain essential NN functionality as predefined.
 
-⦁	To revive a Neural Network library whose early versions were created many years ago.
+⦁	To revive and improve a Neural Network library whose early versions were created many years ago [1][2].
 
 ⦁	To be written in C++ code in a manner that is: (a) Compatible with various C++ compilers (including older compilers for legacy systems, compilers with partial or no STL support, compilers targeting systems of limited processing power, etc.), (b) Compatible with various C++ project types (console, GUI-based, etc), (c) Compatible and usable in R via Rcpp. (d) Compatible with Microsoft Foundation Classes (MFC, by inheriting nn_with_ui instead of nn class for NNs that provides a NN GUI in MS-Windows applications - not included in this repo).
 
@@ -54,3 +54,7 @@ Disadvantages:
 ⦁	No GPU or parallel programming currently implemented (although possible). Therefore, not the most efficient way to implement NNs in terms of runtime performance (nor will ever be unless the layer and connection_set classes are parallelized). As is, this library will not implement the fastest deep-learning NNs possible.
 
 See also the nnlib2Rcpp R Package repo which allows R programs interface with various ANN models implemented in nnlib2 C++ Neural Network library (via RCpp).
+
+[1] Nikolaidis VN, Makris IA, Stavroyiannis S (2013). “ANS-based Preprocessing of Company Performance Indicators.” Global Business and Economics Review, 15(1), 49–58.
+
+[2] Nikolaidis V (1999). Non-Destructive Inspection (NDI) Techniques for Composite Materials using Unconventional Pattern Regognition Methods (in Greek). Ph.D. thesis, University of Patras. URL https://thesis.ekt.gr/thesisBookReader/id/11158.
