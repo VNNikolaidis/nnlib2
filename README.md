@@ -54,6 +54,8 @@ Disadvantages:
 ⦁	No GPU or parallel programming currently implemented (although possible). Therefore, not the most efficient way to implement NNs in terms of runtime performance (nor will ever be unless the layer and connection_set classes are parallelized). As is, this library will not implement the fastest deep-learning NNs possible.
 
 See also the nnlib2Rcpp R Package repo which allows R programs interface with various ANN models implemented in nnlib2 C++ Neural Network library (via RCpp).
+----
+References:
 
 [1] Nikolaidis VN, Makris IA, Stavroyiannis S (2013). “ANS-based Preprocessing of Company Performance Indicators.” Global Business and Economics Review, 15(1), 49–58.
 
