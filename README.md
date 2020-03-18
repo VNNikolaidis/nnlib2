@@ -37,7 +37,7 @@ The library was meant to be a tool for creating “any” (at least traditional)
 
 ⦁	Several Back-Propagation custom variations (of my own) in class bpXX_nn.
 
-⦁	A simple Matrix-Associative-Memory (MAM).
+⦁	A simple Matrix-Associative-Memory (MAM) (<-- Note: this is the code to check first. Simplest and most recently written) 
 
 Advantages:
 
