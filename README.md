@@ -63,6 +63,9 @@ Disadvantages:
 See also the nnlib2Rcpp R Package repo which allows R programs interface with various ANN models implemented in nnlib2 C++ Neural Network library (via RCpp).
 
 ----
+We welcome anyone who wants to contribute to this project.
+
+----
 References:
 
 [1] Nikolaidis VN, Makris IA, Stavroyiannis S (2013). “ANS-based Preprocessing of Company Performance Indicators.” Global Business and Economics Review, 15(1), 49–58.
