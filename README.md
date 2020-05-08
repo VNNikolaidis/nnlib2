@@ -1,5 +1,5 @@
 # nnlib2
-A C++ Library for creating Artificial Neural Networks.
+A collection of C++ classes and templates for creating Artificial Neural Networks.
 
 To compile for a particular target the following are available in header nnlib2.h:
 
@@ -46,7 +46,7 @@ The library was meant to be a tool for creating “any” (at least traditional)
 ---
 Advantages:
 
-⦁	Framework produces compiled code, which is fast (however, see disadvantages below).
+⦁	Produces compiled code, which is fast (however, see disadvantages below).
 
 ⦁	Object-Orientated model is well fit to the job of deriving new NN models from existing ones. 
 
