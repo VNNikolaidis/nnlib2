@@ -4,7 +4,7 @@
 //		nn_lvq.h		 							Version 0.1
 //		-----------------------------------------------------------
 //		Definition - implementation of kohonen clustering nets
-//		(lvq_nn) SOM and LVQ functionality.
+//		(lvq_nn) SOM (actually LVQ-unsupervised) and LVQ functionality.
 //		SOM implementation is described as Unsupervised Learning LVQ
 //		in P.K.Simpson's Artificial Neural Systems (1990)";
 //		m_neighborhood_size=1 => Single Winner Unsupervised.
@@ -39,19 +39,13 @@ namespace lvq {
 /*-----------------------------------------------------------------------*/
 /* Layers																 */
 /*-----------------------------------------------------------------------*/
-
-class lvq_input_layer : public pe_layer
- {
- public:
- void recall();
- };
-
 // implementation follows:
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 void lvq_input_layer::recall()
   {
-  if(no_error()) for(int i=0;i<size();i++)
+  if(no_error())
+  for(int i=0;i<size();i++)
    {
    pes[i].output=pes[i].input;
    pes[i].input=0;
@@ -59,17 +53,6 @@ void lvq_input_layer::recall()
   }
 
 /*-----------------------------------------------------------------------*/
-
-class lvq_output_layer : public pe_layer
- {
- private:
- int m_neighborhood_size;									// must be 1 in Single Winner Unsupervised, 3,5,7... in Multiple Winner Unsupervised.
-
- public:
- void setup(string name, int size, int neighborhood);
- void recall();
- };
-
 // implementation follows:
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -110,7 +93,7 @@ void lvq_output_layer::recall()
     last_winner = i;
     }
    else
-    p.misc = LVQ_DEACTI_PE;									// set PE to not activated.
+    p.misc = LVQ_DEACTI_PE;										// set PE to not activated.
    }
 
   // also activate nodes in neighborhood
@@ -141,23 +124,8 @@ void lvq_output_layer::recall()
   }
 
 /*-----------------------------------------------------------------------*/
-/* Connections															 */
+/* LVQ Connections														 */
 /*-----------------------------------------------------------------------*/
-
-class lvq_connection_set : public generic_connection_set
- {
- private:
- int m_iteration;
-
- public:
-
- lvq_connection_set();
-
- void recall();						// virtual, defined in component
- void encode();						// virtual, defined in component
- void encode(int iteration);		// a useful variation, of above, imposes iteration
- };
-
 // implementation follows:
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -169,10 +137,17 @@ lvq_connection_set::lvq_connection_set()
 
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+void lvq_connection_set::set_iteration_number(int iteration)
+	{
+	if(iteration>LVQ_MAXITERATION) { warning("Max LVQ iteration reached"); m_iteration=LVQ_MAXITERATION;return;}
+	m_iteration = iteration;
+	}
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 void lvq_connection_set::encode(int iteration)
   {
-  if(iteration>LVQ_MAXITERATION) { warning("Max LVQ iteration reached"); m_iteration=LVQ_MAXITERATION;return;}
-  m_iteration = iteration;
+  set_iteration_number(iteration);
   encode();
   }
 
@@ -256,7 +231,7 @@ lvq_nn::~lvq_nn() {}
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // optional matrix initializes weights; must be sized output_dimension X input_dimension
 
-bool lvq_nn::setup(int input_dimension, int output_dimension,DATA ** initial_cluster_centers_matrix) 
+bool lvq_nn::setup(int input_dimension, int output_dimension,DATA ** initial_cluster_centers_matrix)
  {
  lvq_input_layer    * p_input_layer;
  lvq_output_layer   * p_output_layer;
@@ -277,7 +252,6 @@ bool lvq_nn::setup(int input_dimension, int output_dimension,DATA ** initial_clu
   p_output_layer = new lvq_output_layer ();
   p_output_layer->set_error_flag(my_error_flag());
   p_output_layer->setup("Output",output_dimension,m_output_neighborhood_size);
-
 
   p_connection_set = new lvq_connection_set;
   p_connection_set->set_error_flag(my_error_flag());
@@ -305,7 +279,7 @@ bool lvq_nn::setup(int input_dimension, int output_dimension,DATA ** initial_clu
    {
    set_component_for_input(0);
    set_component_for_output(2);
-   set_ready();
+   set_is_ready_flag();
    }
   }
 
@@ -383,7 +357,7 @@ void lvq_nn::from_stream ( std::istream REF s )
  lvq_output_layer   * p_output_layer;
  lvq_connection_set * p_connection_set;
  int number_of_components;
- 
+
  nn::from_stream(s);		                                    // read header (the way it was done in older versions)
 
  if(no_error())
@@ -419,7 +393,7 @@ void lvq_nn::from_stream ( std::istream REF s )
     {
   	set_component_for_input(0);
   	set_component_for_output(2);
-  	set_ready();
+  	set_is_ready_flag();
     }
   }
  }
@@ -433,7 +407,7 @@ void lvq_nn::from_stream ( std::istream REF s )
 som_nn::som_nn(int neighborhood_size)
  :lvq_nn()
  {
- m_name = "SOM ANS";
+ m_name = "LVQu (SOM) ANS";
  m_output_neighborhood_size = neighborhood_size;
  if(m_output_neighborhood_size%2==0) m_output_neighborhood_size=m_output_neighborhood_size-1;
  if(m_output_neighborhood_size<1) m_output_neighborhood_size=1;

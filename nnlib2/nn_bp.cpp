@@ -33,16 +33,6 @@ bool bp_nn::display_squared_error = false;			// true = display squared error whe
 /*-----------------------------------------------------------------------*/
 /* Back Propagation Perceptron Layers									 */
 /*-----------------------------------------------------------------------*/
-
-class bp_layer : public pe_layer
- {
- protected:
- DATA m_learning_rate;
-
- public:
- void set_learning_rate(DATA lrate);
- };
-
 // implementation follows:
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -77,14 +67,6 @@ void bp_input_layer::recall()
 
 /*-----------------------------------------------------------------------*/
 // computing layer (includes hidden and output layers).
-
-class bp_comput_layer : public bp_layer
- {
- public:
- void encode();
- void recall();
- };
-
 // implementation follows:
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -125,13 +107,6 @@ void bp_comput_layer::recall()
 // in BP output layer has similar functionality to hidden...
 // it is a computing layer.
 // but also needs to be able to accept "desired output" as input when encoding.
-
-class bp_output_layer : public bp_comput_layer
- {
- public:
- void encode();
- };
-
 // implementation follows:
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -154,18 +129,6 @@ void bp_output_layer::encode()
 /*-----------------------------------------------------------------------*/
 /* Back Propagation Perceptron Connections								 */
 /*-----------------------------------------------------------------------*/
-
-class bp_connection_set : public generic_connection_set
- {
- protected:
- DATA m_learning_rate;
-
- public:
- void encode();
- void recall();
- void set_learning_rate(DATA d);
- };
-
 // implementation follows:
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -365,10 +328,9 @@ bool bp_nn::setup(int input_dimension, int output_dimension)
    {
    set_component_for_input(0);								// the first in topology
    set_component_for_output(topology.size()-1);				// the last in topology
-   set_ready();
+   set_is_ready_flag();
    }
   }
-
 
  return no_error();
  }
@@ -428,7 +390,7 @@ void bp_nn::from_stream ( std::istream REF s )
  string comment;
  bp_layer * source_layer, * destin_layer;
  bp_connection_set * new_connection_set;
- 
+
  nn::from_stream(s);	                                    // read header (the way it was done in older versions)
 
  if(no_error())
@@ -490,7 +452,7 @@ void bp_nn::from_stream ( std::istream REF s )
    {
    set_component_for_input(0);								// the first in topology
    set_component_for_output(topology.size()-1);				// the last in topology
-   set_ready();
+   set_is_ready_flag();
    }
   }
  }
@@ -513,7 +475,7 @@ bpu1_nn::bpu1_nn()
  }
 
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// recalls a vector and then encodes it (similar to what SOM does).
+// recalls a vector and then encodes it (similar to what unsupervised LVQ does).
 // do we really want to do this???
 
 DATA bpu1_nn::encode_u(DATA PTR input, int input_dim, int iteration)
@@ -603,7 +565,7 @@ bpu2_nn::bpu2_nn()
  }
 
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// recalls a vector and then encodes it (similar to what SOM does).
+// recalls a vector and then encodes it (similar to what unsupervised LVQ does).
 // do we really want to do this???
 
 DATA bpu2_nn::encode_u(DATA PTR input, int input_dim, int iteration)
@@ -696,7 +658,7 @@ bpu3_nn::bpu3_nn()
  }
 
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// recalls a vector and then encodes it (similar to what SOM does).
+// recalls a vector and then encodes it (similar to what unsupervised LVQ does).
 // do we really want to do this???
 
 DATA bpu3_nn::encode_u(DATA PTR input, int input_dim, int iteration)
@@ -910,7 +872,7 @@ bool bpu4_nn::setup(int input_dimension,int output_dimension)
    {
    set_component_for_input(0);								// the first in topology
    set_component_for_output(topology.size()-1);				// the last in topology (this is still a BP...I guess)
-   set_ready();
+   set_is_ready_flag();
    }
 
  return no_error();
@@ -1056,7 +1018,7 @@ bool bpu5_nn::setup(int input_dimension, DATA learning_rate, int hidden_layers_p
   destin_layer->set_learning_rate(learning_rate);
   destin_layer->randomize_biases(bp_rnd_min,bp_rnd_max);
   topology.append(destin_layer);
-  m_special_layer_component = topology.size()-1;							// the position of special layer in topology
+  m_special_layer_component = topology.size()-1;							// the index position of special layer in topology
 
   new_connection_set->setup("",source_layer,destin_layer);
   new_connection_set->fully_connect();
@@ -1118,7 +1080,7 @@ bool bpu5_nn::setup(int input_dimension, DATA learning_rate, int hidden_layers_p
    {
    set_component_for_input(0);								// the first in topology
    set_component_for_output(topology.size()-1);				// the last in topology (this is still a BP...I guess)
-   set_ready();
+   set_is_ready_flag();
    }
 
  return no_error();

@@ -3,6 +3,7 @@
 //		-----------------------------------------------------------
 //		nnlib2.h								Version (see below)
 //		Definitions  		    20YLE => 20 Years Later Edition :-)
+//											Based on nnlib (C) 1998
 //		-----------------------------------------------------------
 //		this is the main definitions file for nnlib2, a Neural Net
 //		library which originates from code written decades ago.
@@ -16,7 +17,7 @@
 #ifndef VNN_H
 #define VNN_H
 
-#define NN_VERSION "nnlib2 v.0.1.3 (Ugly Duck-20YLE) (c)2019 Vasilis N. Nikolaidis"
+#define NN_VERSION "nnlib2 v.0.2.0 (Dizzy Duck-20YLE) (c)2019 Vasilis N. Nikolaidis"
 
 /*-----------------------------------------------------------------------*/
 
@@ -32,6 +33,7 @@
 #ifdef NNLIB2_FOR_RCPP
 #include <Rcpp.h>
 // [[Rcpp::plugins("cpp11")]]
+using namespace Rcpp;
 #define TEXTOUT Rcpp::Rcout
 #endif
 
