@@ -48,7 +48,7 @@
     <ClCompile Include="..\..\nnlib2\pe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\test_main\test_main_with_SOM.cpp">
+    <ClCompile Include="..\..\test_main\test-main_with_SOM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

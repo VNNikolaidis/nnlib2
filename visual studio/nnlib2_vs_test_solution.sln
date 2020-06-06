@@ -7,8 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nnlib2_sMAM_test", "nnlib2_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nnlib2_SOM_test", "nnlib2_SOM_test\nnlib2_SOM_test.vcxproj", "{9B83E29F-6114-4A6B-A4F6-0FA43A4FCBFC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nnlib2_BP_from_file_test", "nnlib2_BP_from_file_test\nnlib2_BP_from_file_test.vcxproj", "{969F01C8-14AE-42ED-8429-101DF99B3345}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -33,14 +31,6 @@ Global
 		{9B83E29F-6114-4A6B-A4F6-0FA43A4FCBFC}.Release|x64.Build.0 = Release|x64
 		{9B83E29F-6114-4A6B-A4F6-0FA43A4FCBFC}.Release|x86.ActiveCfg = Release|Win32
 		{9B83E29F-6114-4A6B-A4F6-0FA43A4FCBFC}.Release|x86.Build.0 = Release|Win32
-		{969F01C8-14AE-42ED-8429-101DF99B3345}.Debug|x64.ActiveCfg = Debug|x64
-		{969F01C8-14AE-42ED-8429-101DF99B3345}.Debug|x64.Build.0 = Debug|x64
-		{969F01C8-14AE-42ED-8429-101DF99B3345}.Debug|x86.ActiveCfg = Debug|Win32
-		{969F01C8-14AE-42ED-8429-101DF99B3345}.Debug|x86.Build.0 = Debug|Win32
-		{969F01C8-14AE-42ED-8429-101DF99B3345}.Release|x64.ActiveCfg = Release|x64
-		{969F01C8-14AE-42ED-8429-101DF99B3345}.Release|x64.Build.0 = Release|x64
-		{969F01C8-14AE-42ED-8429-101DF99B3345}.Release|x86.ActiveCfg = Release|Win32
-		{969F01C8-14AE-42ED-8429-101DF99B3345}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
 #include "../nnlib2/nn_lvq.h"
+#include "../nnlib2/nn_bp.h"
 #include "../nnlib2/nnlib2_misc.h"  // for winner_takes_all()
 //--------------------------------------------------------------------------------
 using namespace nnlib2;
@@ -28,7 +29,7 @@ int main()
     // create_the_som
 
     const int som_neigborhood_size = 1;
-    som_nn som(som_neigborhood_size);
+    som_nn som (som_neigborhood_size);
     som.setup(som_data_input_dim, som_data_output_dim);
 
     // use_the_som, train (unsupervised)
@@ -47,7 +48,7 @@ int main()
         som.recall(inputdata[r], som_data_input_dim, outputdata, som_data_output_dim);
         
         int c = winner_takes_all(outputdata, som_data_output_dim);
-        TEXTOUT << "item " << r << " SOM recalled, labeled " << c << "\n";
+        TEXTOUT << "item " << r << " recalled, labeled " << c << "\n";
     }
 
 

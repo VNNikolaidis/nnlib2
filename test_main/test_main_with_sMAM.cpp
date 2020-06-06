@@ -1,5 +1,4 @@
 #include "../nnlib2/nnlib2.h"
-#include "../nnlib2/nnlib2.h"
 #include "../nnlib2/nn.h"
 #include "../nnlib2/layer.h"
 #include "../nnlib2/connection_set.h"
@@ -54,15 +53,22 @@ public:
 	sMAM_nn(int input_length, int output_length)
 		:nn("MAM Neural Network")
 	{
-		topology.append(new sMAM_layer("Input layer", input_length, my_error_flag()));
-		topology.append(new sMAM_connection_set);
-		topology.append(new sMAM_layer("Output layer", output_length, my_error_flag()));
+		sMAM_layer* L;
+		sMAM_connection_set* CX;
+
+		L = new sMAM_layer("Input layer", input_length, my_error_flag());
+		topology.append(L);
+
+		CX = new sMAM_connection_set;
+		topology.append(CX);
+
+		L = new sMAM_layer("Output layer", output_length, my_error_flag());
+		topology.append(L);
 
 		// setup connections for all layer+connection_set+layer sequences
 		// by default fully connects them w/ weight 0 (more options are available)
 	
-		connect_consequent_layers();
-		set_ready();			// indicate NN is ready to encode/decode
+	connect_consecutive_layers();
 	}
 };
 
@@ -70,7 +76,7 @@ public:
 
 int main() 
 	{
-	DATA input[4][3] =
+	double input[4][3] =
 	{
   	{  1,  1, -1 }, 		// row 0
   	{ -1, -1, -1 }, 		// row 1
@@ -78,7 +84,7 @@ int main()
   	{  1,  1,  1 }, 		// row 3
  	};
 
-	DATA output[4][2] =
+	double output[4][2] =
 	{
   	{ 0, 1 }, 		// encode type 1 for row 0
   	{ 1, 0 }, 		// encode type 0 for row 1
@@ -91,7 +97,7 @@ int main()
 	sMAM_nn theMAM(3,2);
 
 	// uncomment to show MAM:
-	// theMAM.to_stream(TEXTOUT);
+	// theMAM.to_stream(cout);
 
 	// now encode input-output pairs to MAM...
 
@@ -99,7 +105,7 @@ int main()
 		theMAM.encode_s(input[i],3,output[i],2);
 
 	// uncomment to show MAM:
-	// theMAM.to_stream(TEXTOUT);
+	// theMAM.to_stream(cout);
 
 	// now recall input from MAM...
 
@@ -108,7 +114,7 @@ int main()
 	for(int i=0;i<4;i++)
 		{
 	    theMAM.recall(input[i],3, nn_output_buffer,2);
-		TEXTOUT << "for input #" << i << " sMAM output is decoded to " << which_max(nn_output_buffer,2) << "\n";
+		cout << "for input #" << i << " output is decoded to " << which_max(nn_output_buffer,2) << "\n";
 		}
 
 	return 0;
