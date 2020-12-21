@@ -50,7 +50,7 @@ class nn : public component, public data_receiver, public data_provider, public 
  nn(string name);
  ~nn();
 
- virtual void reset();
+ virtual void reset(bool clear_additional_parameters = true);
  virtual bool set_additional_parameters(double param1,...);
 
  void encode();                                                         // (required by component class) performs a typical encode, in the direction from input to output. Assumes data is available. Overide if something else is needed.
@@ -135,8 +135,10 @@ class nn : public component, public data_receiver, public data_provider, public 
  bool remove_connection(int index, int connection_number);
  bool get_input_data_at_component (int index, DATA * buffer, int dimension);
  bool get_weights_at_component (int index, DATA * buffer, int dimension);
+ DATA get_weight_at_component(int index, int connection_number);        // returns 0 if not successful
+ bool set_weight_at_component(int index, int connection_number, DATA weight);
+ bool set_misc_at_component(int index, DATA * data, int dimension);
  void change_is_ready_flag(bool new_state);                             // avoid using, nn should set m_nn_is_ready flag itself, once its setup is completed
-
  };
 
 }   // end of namespace nnlib2

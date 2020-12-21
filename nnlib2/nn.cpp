@@ -60,10 +60,12 @@ bool nn::set_additional_parameters(double param1,  ...)
 
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-void nn::reset()
+void nn::reset(bool clear_additional_parameters)
  {
  m_nn_is_ready = false;
- parameters.reset();
+
+ if(clear_additional_parameters) parameters.reset();
+
  topology.set_error_flag(my_error_flag());
 
  reset_error();
@@ -902,6 +904,38 @@ bool nn::get_weights_at_component (int index, DATA * buffer, int dimension)
 
   return true;
  }
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// patch. Returns 0 if not successful
+
+DATA nn::get_weight_at_component(int index, int connection_number)
+{
+  connection_set PTR p_cs = get_connection_set_at(index);
+  if(p_cs==NULL) {warning("Invalid connection set"); return 0;}
+  return p_cs->get_connection_weight(connection_number);
+}
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// patch
+
+bool nn::set_weight_at_component(int index, int connection_number, DATA weight)
+{
+  connection_set PTR p_cs = get_connection_set_at(index);
+  if(p_cs==NULL) {warning("Invalid connection set"); return 0;}
+  return p_cs->set_connection_weight(connection_number, weight);
+}
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// patch
+
+bool nn::set_misc_at_component(int index, DATA * data, int dimension)
+{
+  layer PTR p_lay = get_layer_at(index);
+  if (p_lay != NULL) return p_lay->set_misc(data,dimension);
+  connection_set PTR p_cs = get_connection_set_at(index);
+  if (p_cs != NULL) return p_cs->set_misc(data,dimension);
+  return false;
+}
 
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // patch: avoid using, nn should set m_nn_is_ready flag itself, once its setup is completed
