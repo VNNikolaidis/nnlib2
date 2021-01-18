@@ -13,6 +13,12 @@ or define none of these for unspecified targer.
 
 ---
 
+More instructions on using 'nnlib2' and related 'nnlib2Rcpp' R package can be found in file "manual.pdf" of 'the 'nnlib2Rcpp' repository, i.e. here:
+
+https://github.com/VNNikolaidis/nnlib2Rcpp/blob/master/manual.pdf
+
+---
+
 nnlib2 C++ Neural Network library goals:
 
 ⦁	To help creating Artificial Neural Network Systems (ANNs/ANS/NNs) in C++, allowing a uniform code-writing style for different NN implementations.
