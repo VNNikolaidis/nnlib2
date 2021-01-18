@@ -13,7 +13,7 @@ or define none of these for unspecified targer.
 
 ---
 
-More instructions on using 'nnlib2' and related 'nnlib2Rcpp' R package can be found in file "manual.pdf" of 'the 'nnlib2Rcpp' repository, i.e. here:
+More instructions on using 'nnlib2' can be found in file "manual.pdf" of the (related) 'nnlib2Rcpp' R package repository, i.e. here:
 
 https://github.com/VNNikolaidis/nnlib2Rcpp/blob/master/manual.pdf
 
