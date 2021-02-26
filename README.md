@@ -15,7 +15,7 @@ or define none of these for unspecified targer.
 
 More instructions on using 'nnlib2' can be found in file "manual.pdf" of the (related) 'nnlib2Rcpp' R package repository, i.e. here:
 
-https://github.com/VNNikolaidis/nnlib2Rcpp/blob/master/manual.pdf
+https://github.com/VNNikolaidis/nnlib2Rcpp/blob/master/doc/manual.pdf
 
 ---
 
