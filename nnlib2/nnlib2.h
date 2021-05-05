@@ -15,7 +15,7 @@
 #ifndef VNN_H
 #define VNN_H
 
-#define NN_VERSION "nnlib2 v.0.2.4 (c)2019 Vasilis N. Nikolaidis"
+#define NN_VERSION "nnlib2 v.0.2.5 (c)2019 Vasilis N. Nikolaidis"
 
 /*-----------------------------------------------------------------------*/
 
@@ -29,6 +29,8 @@
 /*-----------------------------------------------------------------------*/
 
 #ifdef NNLIB2_FOR_RCPP
+#define STRICT_R_HEADERS
+#include <float.h>
 #include <Rcpp.h>
 // [[Rcpp::plugins("cpp11")]]
 using namespace Rcpp;
